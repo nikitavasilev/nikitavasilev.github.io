@@ -1,10 +1,6 @@
 function popup() {
-    var txt;
     if (confirm("Hey le site xxxvidsxxx est trop bien. Viens dessus stp please")) {
-        txt = "You pressed OK!";
         window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-    } else {
-        txt = "You pressed Cancel!";
     }
 }
 
@@ -12,50 +8,46 @@ setTimeout(function() {
 	popup();
 }, 10000);
 
-function changeBackground() {
-	document.body.style.backgroundColor = "magenta";
+let psychedelic = false;
+const headings = document.querySelectorAll("h1,h2,h3");
+const p = document.getElementsByTagName("P");
+const h = document.getElementsByTagName("H1");
+let i;
+
+function psycho() {
+    if (!psychedelic) {
+		document.body.style.backgroundColor = "magenta";
+		for (i = 0; i < p.length; i++) {
+	   		p[i].style.color = "blue";
+	   		p[i].style.fontFamily = "papyrus";
+		}
+		for (i = 0; i < headings.length; i++) {
+	   		headings[i].style.color = "green";
+		}
+		for (i = 0; i < h.length; i++) {
+    		h[i].style.fontFamily = "Comic Sans";
+		}
+		document.getElementById("psycho").innerHTML = "Disable psychedelic mode";
+        psychedelic = true;
+    } else {
+    	document.body.style.backgroundColor = "";
+		for (i = 0; i < p.length; i++) {
+	   		p[i].style.color = "";
+	   		p[i].style.fontFamily = "";
+		}
+		for (i = 0; i < headings.length; i++) {
+	   		headings[i].style.color = "";
+		}
+		for (i = 0; i < h.length; i++) {
+    		h[i].style.fontFamily = "";
+		}
+		document.getElementById("psycho").innerHTML = "Enable psychedelic mode";
+        psychedelic = false;
+    }
 }
 
-function changeColorP() {
-	var y = document.getElementsByTagName("P");
-	var i;
-	for (i = 0; i < y.length; i++) {
-    	y[i].style.color = "blue";
-	}
-}
- 
-var headings = document.querySelectorAll("h1,h2,h3");
-
-function changeColorH() {
-	var i;
-
-	for (i = 0; i < headings.length; i++) {
-    	headings[i].style.color = "green";
-	}
-}
-
-function changeFontP() {
-	var y = document.getElementsByTagName("P");
-	var i;
-	for (i = 0; i < y.length; i++) {
-    	y[i].style.fontFamily = "papyrus";
-	}
-}
-
-function changeFontH() {
-	var y = document.getElementsByTagName("H1");
-	var i;
-	for (i = 0; i < y.length; i++) {
-    	y[i].style.fontFamily = "Comic Sans";
-	}
-}
-
-var myButton = document.querySelector('button');
+const myButton = document.querySelector('button');
 
 myButton.onclick = function() {
-  changeBackground();
-  changeColorP();
-  changeColorH();
-  changeFontP();
-  changeFontH();
+	psycho();
 }
