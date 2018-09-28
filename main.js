@@ -11,7 +11,6 @@ setTimeout(function() {
 let psychedelic = false;
 const headings = document.querySelectorAll("h1,h2,h3");
 const p = document.getElementsByTagName("P");
-const h = document.getElementsByTagName("H1");
 let i;
 
 function psycho() {
@@ -23,11 +22,10 @@ function psycho() {
 		}
 		for (i = 0; i < headings.length; i++) {
 	   		headings[i].style.color = "green";
-		}
-		for (i = 0; i < h.length; i++) {
-    		h[i].style.fontFamily = "Comic Sans";
+	   		headings[i].style.fontFamily = "Comic Sans";
 		}
 		document.getElementById("psycho").innerHTML = "Disable psychedelic mode";
+		
         psychedelic = true;
     } else {
     	document.body.style.backgroundColor = "";
@@ -37,11 +35,10 @@ function psycho() {
 		}
 		for (i = 0; i < headings.length; i++) {
 	   		headings[i].style.color = "";
-		}
-		for (i = 0; i < h.length; i++) {
-    		h[i].style.fontFamily = "";
+	   		headings[i].style.fontFamily = "";
 		}
 		document.getElementById("psycho").innerHTML = "Enable psychedelic mode";
+
         psychedelic = false;
     }
 }
